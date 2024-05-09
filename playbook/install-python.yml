@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: no
+  become: true
+  tasks:
+    - name: Ensure Python is installed for Ansible
+      raw: apt-get install -y python3
+      changed_when: false

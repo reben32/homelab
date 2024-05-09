@@ -1,9 +1,10 @@
 ---
 - hosts: all
-
+  gather_facts: no
   become: true
   tasks:
-  - name: update apt packages
-    apt:
-      upgrade: yes
-      update_cache: yes
+    - name: update apt packages
+      apt:
+        update_cache: yes
+        upgrade: yes
+        cache_valid_time: 3600  # Reduces frequency of cache updates

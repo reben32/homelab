@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Asynchronously update all apt packages
+      apt:
+        update_cache: yes
+        upgrade: 'dist'
+        cache_valid_time: 3600  # Only update cache if older than 1 hour
+      async: 600
+      poll: 15
