@@ -1,6 +1,8 @@
 ---
 - hosts: all
   become: true
+  become_method: su
+
   tasks:
     - name: Asynchronously update all apt packages
       apt:
